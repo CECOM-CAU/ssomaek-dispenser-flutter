@@ -40,10 +40,11 @@ class MixingGaugeState extends State<MixingGauge> {
 
   void fillGauge(int counterA, int counterB) {
     setState(() {
-      _currentHeight = ((counterA + counterB) * 2.0).clamp(0, 100);
+      _currentHeight = (_currentHeight + ((counterA + counterB) * 2.0)).clamp(0, 200);
       print('counterA: $counterA, counterB: $counterB, _currentHeight: $_currentHeight');
     });
   }
+
 
 
   @override
