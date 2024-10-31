@@ -3,6 +3,7 @@ import '../widgets/counter_display.dart';
 import '../widgets/ratio_selector.dart';
 import '../widgets/mixing_gauge.dart';
 import '../widgets/extract_button.dart';
+import '../widgets/drink_button.dart';  // DrinkButton 위젯 임포트
 
 class MixingPage extends StatefulWidget {
   const MixingPage({super.key});
@@ -35,12 +36,10 @@ class _MixingPageState extends State<MixingPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // 상단에 CounterDisplay 추가
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20.0),
             child: CounterDisplay(counterA: counterA, counterB: counterB),
           ),
-          // 슬라이더와 비율 선택기
           RatioSelector(
             selectedRatio: selectedRatio,
             sliderValue: sliderValue,
@@ -67,13 +66,11 @@ class _MixingPageState extends State<MixingPage> {
               });
             },
           ),
-          // 게이지 바
           MixingGauge(
             key: _mixingGaugeKey,
             counterA: counterA,
             counterB: counterB,
           ),
-          // 도출하기 버튼을 하단으로 이동
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -86,16 +83,11 @@ class _MixingPageState extends State<MixingPage> {
                     });
                   },
                 ),
-                const SizedBox(height: 16),
-                ElevatedButton(
+                const SizedBox(height: 10),
+                DrinkButton(
                   onPressed: () {
                     _mixingGaugeKey.currentState?.fillGauge(counterA, counterB);
                   },
-                  child: const Text('마셔마셔'),
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                    textStyle: const TextStyle(fontSize: 20),
-                  ),
                 ),
               ],
             ),

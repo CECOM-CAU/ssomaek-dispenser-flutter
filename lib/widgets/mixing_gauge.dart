@@ -40,10 +40,11 @@ class MixingGaugeState extends State<MixingGauge> {
 
   void fillGauge(int counterA, int counterB) {
     setState(() {
-      // counterA와 counterB의 합에 비례하여 게이지 높이를 설정하되, 최대값은 100으로 제한
       _currentHeight = ((counterA + counterB) * 2.0).clamp(0, 100);
+      print('counterA: $counterA, counterB: $counterB, _currentHeight: $_currentHeight');
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,7 @@ class MixingGaugeState extends State<MixingGauge> {
           AnimatedContainer(
             duration: const Duration(milliseconds: 500),
             height: _currentHeight,
-            color: Colors.cyan,
+            color: Colors.cyanAccent,
             child: const Center(
               child: Text('CECOM...'),
             ),
