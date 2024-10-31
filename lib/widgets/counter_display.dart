@@ -14,8 +14,8 @@ class CounterDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('A 토출량 $counterA ml', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 50)),
-        Text('B 토출량 $counterB ml', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 50)),
+        Text('소주 토출량 $counterA ml', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 50)),
+        Text('맥주 토출량 $counterB ml', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 50)),
       ],
     );
   }
